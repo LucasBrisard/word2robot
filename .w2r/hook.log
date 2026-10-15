@@ -1,0 +1,59 @@
+2026-10-14 22:03:41  ok         features/SC-001_rechercher_une_video.feature
+2026-10-14 22:03:43  ok         tests/SC-002_lire_une_video.robot
+2026-10-14 22:03:44  non suivi  README.md
+2026-10-14 22:09:07  ok         features/SC-001_rechercher_une_video.feature
+2026-10-14 22:09:09  ok         tests/SC-002_lire_une_video.robot
+2026-10-14 22:09:11  non suivi  README.md
+2026-10-14 22:09:27  ERREUR     features/SC-997_casse.feature
+2026-10-15 09:32:23  ignoré     C:\Users\lucas\AppData\Local\Temp\claude\C--Users-lucas-dev-word2robot\659ee35e-5aa9-44a9-bd88-9585ec2999c8\scratchpad\essai_stdio.ps1
+2026-10-15 09:32:27  ignoré     C:\Users\lucas\AppData\Local\Temp\claude\C--Users-lucas-dev-word2robot\659ee35e-5aa9-44a9-bd88-9585ec2999c8\scratchpad\essai_stdio.ps1
+2026-10-15 09:32:30  ok         features/SC-001_rechercher_une_video.feature
+2026-10-15 09:32:32  ok         tests/SC-002_lire_une_video.robot
+2026-10-15 09:32:34  non suivi  README.md
+2026-10-15 09:32:51  ignoré     C:\Users\lucas\AppData\Local\Temp\claude\C--Users-lucas-dev-word2robot\659ee35e-5aa9-44a9-bd88-9585ec2999c8\scratchpad\declencheur_hook.txt
+2026-10-15 09:33:16  non suivi  w2r.ps1
+2026-10-15 09:33:18  non suivi  w2r.ps1
+2026-10-15 09:33:38  non suivi  README.md
+2026-10-15 09:33:40  non suivi  AGENTS.md
+2026-10-15 09:33:42  non suivi  w2r.ps1
+2026-10-15 09:33:51  non suivi  procedures/methode.md
+2026-10-15 09:33:53  non suivi  w2r.ps1
+2026-10-15 09:34:01  ignoré     C:\Users\lucas\.claude\projects\C--Users-lucas-dev-word2robot\memory\outillage-conteneurise-multi-agents.md
+2026-10-15 12:39:51  non suivi  modele/projet.yaml
+2026-10-15 12:39:54  non suivi  modele/conventions.md
+2026-10-15 12:39:57  ok         modele/resources/locators.resource
+2026-10-15 12:40:00  ok         modele/resources/metier.resource
+2026-10-15 12:40:15  non suivi  commun/conventions.md
+2026-10-15 12:40:17  non suivi  projets/youtube/conventions.md
+2026-10-15 12:41:31  non suivi  procedures/methode.md
+2026-10-15 12:41:33  non suivi  procedures/traduire.md
+2026-10-15 12:41:35  non suivi  procedures/valider.md
+2026-10-15 12:41:37  non suivi  procedures/automatiser.md
+2026-10-15 12:41:39  non suivi  procedures/executer.md
+2026-10-15 12:41:41  non suivi  procedures/etat.md
+2026-10-15 12:42:18  non suivi  AGENTS.md
+2026-10-15 12:42:37  non suivi  .gitignore
+2026-10-15 12:42:39  non suivi  env.example
+2026-10-15 12:42:41  non suivi  .github/workflows/robot.yml
+2026-10-15 12:42:53  non suivi  .claude/settings.json
+2026-10-15 12:42:57  ok         commun/session.resource
+2026-10-15 12:45:08  ok         projets/youtube/features/SC-001_rechercher_une_video.feature
+2026-10-15 12:45:11  ok         projets/youtube/tests/SC-002_lire_une_video.robot
+2026-10-15 12:45:12  non suivi  README.md
+2026-10-15 12:45:37  non suivi  README.md
+2026-10-15 12:45:55  non suivi  pyproject.toml
+2026-10-15 12:57:43  ignoré     C:\Users\lucas\AppData\Local\Temp\claude\C--Users-lucas-dev-word2robot\659ee35e-5aa9-44a9-bd88-9585ec2999c8\scratchpad\remplacements.ps1
+2026-10-15 12:58:06  non suivi  .vscode/settings.json
+2026-10-15 12:58:50  non suivi  procedures/methode.md
+2026-10-15 12:59:04  non suivi  AGENTS.md
+2026-10-15 12:59:06  non suivi  AGENTS.md
+2026-10-15 12:59:08  non suivi  AGENTS.md
+2026-10-15 12:59:10  non suivi  AGENTS.md
+2026-10-15 12:59:12  non suivi  AGENTS.md
+2026-10-15 12:59:22  non suivi  docs/credentials.md
+2026-10-15 12:59:32  non suivi  README.md
+2026-10-15 12:59:34  non suivi  README.md
+2026-10-15 12:59:36  non suivi  README.md
+2026-10-15 12:59:38  non suivi  README.md
+2026-10-15 12:59:47  non suivi  README.md
+2026-10-15 13:03:14  ignoré     C:\Users\lucas\.claude\projects\C--Users-lucas-dev-word2robot\memory\outillage-conteneurise-multi-agents.md

@@ -1,0 +1,14 @@
+{
+  "servers": {
+    "playwright": {
+      "type": "stdio",
+      "command": "powershell",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/w2r.ps1", "mcp-playwright"]
+    },
+    "robotframework": {
+      "type": "stdio",
+      "command": "powershell",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/w2r.ps1", "mcp-robot"]
+    }
+  }
+}

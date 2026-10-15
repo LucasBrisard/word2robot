@@ -1,0 +1,171 @@
+{
+  "source": "Recette_YouTube_v0.3.docx",
+  "nb_images": 4,
+  "ocr_actif": true,
+  "blocs": [
+    {
+      "type": "titre",
+      "niveau": "title",
+      "texte": "Cahier de recette – Site vidéo (YouTube)"
+    },
+    {
+      "type": "paragraphe",
+      "section": "(début)",
+      "texte": "Version 0.3 – rédigé par l'équipe recette – à relire"
+    },
+    {
+      "type": "paragraphe",
+      "section": "(début)",
+      "texte": "Environnement : https://www.youtube.com (prod, pas d'env de recette dispo). Navigateur : Chrome."
+    },
+    {
+      "type": "titre",
+      "niveau": "heading 1",
+      "texte": "SC-001 – Rechercher une vidéo"
+    },
+    {
+      "type": "paragraphe",
+      "section": "SC-001 – Rechercher une vidéo",
+      "texte": "Objectif : vérifier que la recherche renvoie des résultats pertinents."
+    },
+    {
+      "type": "tableau",
+      "section": "SC-001 – Rechercher une vidéo",
+      "lignes": [
+        [
+          "Étape",
+          "Action",
+          "Résultat attendu"
+        ],
+        [
+          "1",
+          "Ouvrir le site",
+          "La page d'accueil s'affiche"
+        ],
+        [
+          "2",
+          "Valider les cookies",
+          ""
+        ],
+        [
+          "3",
+          "Taper lofi dans la barre de recherche et valider",
+          "Les résultats s'affichent (voir capture 2)"
+        ],
+        [
+          "4",
+          "Vérifier les résultats",
+          "C'est OK"
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "section": "SC-001 – Rechercher une vidéo",
+      "fichier": "images/image_01.png",
+      "zones_masquees": 0,
+      "legende": "Capture 1 : bandeau cookies au premier accès"
+    },
+    {
+      "type": "paragraphe",
+      "section": "SC-001 – Rechercher une vidéo",
+      "texte": "Capture 1 : bandeau cookies au premier accès"
+    },
+    {
+      "type": "image",
+      "section": "SC-001 – Rechercher une vidéo",
+      "fichier": "images/image_02.png",
+      "zones_masquees": 0,
+      "legende": "Capture 2 : résultats attendus. Il doit y avoir au moins 10 vidéos."
+    },
+    {
+      "type": "paragraphe",
+      "section": "SC-001 – Rechercher une vidéo",
+      "texte": "Capture 2 : résultats attendus. Il doit y avoir au moins 10 vidéos."
+    },
+    {
+      "type": "titre",
+      "niveau": "heading 1",
+      "texte": "SC-002 – Lire une vidéo"
+    },
+    {
+      "type": "paragraphe",
+      "section": "SC-002 – Lire une vidéo",
+      "texte": "Faire une recherche comme dans SC-001 puis cliquer sur la première vidéo, elle doit se lancer toute seule. Mettre en pause puis passer en plein écran et revenir. Vérifier que la pub ne gêne pas la lecture. La vidéo doit avancer normalement (cf capture)."
+    },
+    {
+      "type": "image",
+      "section": "SC-002 – Lire une vidéo",
+      "fichier": "images/image_03.png",
+      "zones_masquees": 0,
+      "legende": "Capture 3 : lecteur après quelques secondes"
+    },
+    {
+      "type": "paragraphe",
+      "section": "SC-002 – Lire une vidéo",
+      "texte": "Capture 3 : lecteur après quelques secondes"
+    },
+    {
+      "type": "titre",
+      "niveau": "heading 1",
+      "texte": "SC-003 – Ajouter une vidéo à « À regarder plus tard »"
+    },
+    {
+      "type": "paragraphe",
+      "section": "SC-003 – Ajouter une vidéo à « À regarder plus tard »",
+      "texte": "Prérequis :"
+    },
+    {
+      "type": "puce",
+      "section": "SC-003 – Ajouter une vidéo à « À regarder plus tard »",
+      "texte": "Avoir un compte connecté"
+    },
+    {
+      "type": "puce",
+      "section": "SC-003 – Ajouter une vidéo à « À regarder plus tard »",
+      "texte": "Compte de test : <IDENTIFIANT_2> / mdp : <MOT_DE_PASSE_1>"
+    },
+    {
+      "type": "paragraphe",
+      "section": "SC-003 – Ajouter une vidéo à « À regarder plus tard »",
+      "texte": "Étapes :"
+    },
+    {
+      "type": "puce",
+      "section": "SC-003 – Ajouter une vidéo à « À regarder plus tard »",
+      "texte": "Se connecter (bouton en haut à droite)"
+    },
+    {
+      "type": "puce",
+      "section": "SC-003 – Ajouter une vidéo à « À regarder plus tard »",
+      "texte": "Ouvrir une vidéo au hasard"
+    },
+    {
+      "type": "puce",
+      "section": "SC-003 – Ajouter une vidéo à « À regarder plus tard »",
+      "texte": "Cliquer sur Enregistrer puis cocher la bonne case (voir capture 4)"
+    },
+    {
+      "type": "puce",
+      "section": "SC-003 – Ajouter une vidéo à « À regarder plus tard »",
+      "texte": "Aller dans la bibliothèque, la vidéo doit y être"
+    },
+    {
+      "type": "image",
+      "section": "SC-003 – Ajouter une vidéo à « À regarder plus tard »",
+      "fichier": "images/image_04.png",
+      "zones_masquees": 0,
+      "legende": "Capture 4 : menu Enregistrer"
+    },
+    {
+      "type": "paragraphe",
+      "section": "SC-003 – Ajouter une vidéo à « À regarder plus tard »",
+      "texte": "Capture 4 : menu Enregistrer"
+    },
+    {
+      "type": "paragraphe",
+      "section": "SC-003 – Ajouter une vidéo à « À regarder plus tard »",
+      "texte": "NB : penser à supprimer la vidéo de la liste à la fin sinon le test suivant plante."
+    }
+  ]
+}

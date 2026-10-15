@@ -1,0 +1,10 @@
+# Projet {{PROJET}} : réglages de l'application testée (aussi chargés comme variables Robot).
+PROJET: {{PROJET}}
+URL_ACCUEIL: ''          # À RENSEIGNER : page d'entrée de l'application (sinon l'agent pose la question)
+
+# Persona = rôle qui exécute un scénario. Jamais d'identifiant ni de mot de passe ici (voir docs/credentials.md).
+# storage_state_env : variable d'environnement donnant le fichier de session (sinon .auth/{{PROJET}}/<persona>.json),
+# ou null pour un visiteur sans compte.
+PERSONAS:
+  visiteur_anonyme:
+    storage_state_env: null

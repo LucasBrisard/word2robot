@@ -1,0 +1,13 @@
+# Projet YouTube : réglages de l'application testée (aussi chargés comme variables Robot).
+PROJET: youtube
+URL_ACCUEIL: https://www.youtube.com/?hl=fr&gl=FR   # production, interface en français (conventions C1, G2)
+DUREE_MAX_ANNONCES: 90s  # attente maximale des publicités avant la vidéo (SC-002 Q1)
+
+# Persona = rôle qui exécute un scénario. Jamais d'identifiant ni de mot de passe ici (voir docs/credentials.md).
+# storage_state_env : variable d'environnement donnant le fichier de session (sinon .auth/youtube/<persona>.json).
+PERSONAS:
+  visiteur_anonyme:
+    storage_state_env: null
+  # Pour automatiser SC-003 (compte de test nécessaire, conventions C2) :
+  # utilisateur_connecte:
+  #   storage_state_env: YOUTUBE_UTILISATEUR_CONNECTE_STORAGE_STATE

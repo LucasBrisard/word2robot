@@ -1,0 +1,4 @@
+# Seuls les fichiers requirements sont utiles à la construction ; le reste est monté à l'exécution.
+*
+!requirements.txt
+!requirements.lock

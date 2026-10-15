@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+     "PowerShell(.\\w2r.ps1 extraire:*)",
+      "PowerShell(.\\w2r.ps1 valider:*)",
+      "PowerShell(.\\w2r.ps1 lint:*)",
+      "PowerShell(.\\w2r.ps1 format:*)",
+      "PowerShell(.\\w2r.ps1 dryrun:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.auth/**)",
+      "Read(./projets/*/scenarios_word/**)",
+      "Bash(cat .env*)",
+      "Bash(cat .auth/*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [{
+          "type": "command",
+          "command": "powershell -NoProfile -ExecutionPolicy Bypass -File w2r.ps1 hook",
+          "timeout": 120
+        }]
+      }
+    ]
+  }
+}

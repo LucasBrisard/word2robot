@@ -1,0 +1,18 @@
+{
+  // GitHub Copilot : lire AGENTS.md et les prompt files (.github/prompts/)
+  "chat.useAgentsMdFile": true,
+  "chat.promptFiles": true,
+  "chat.mcp.access": "all",
+
+  // Commandes du terminal approuvées sans confirmation (lecture et contrôles seulement) ;
+  // l'exécution des tests, la construction de l'image et le reste demandent toujours confirmation.
+  "chat.tools.terminal.autoApprove": {
+    "/^\\.\\\\w2r\\.ps1 (aide|valider|lint|dryrun|extraire|fiche-word)\\b/": true,
+    "/\\.env\\b/": false,
+    "/\\.auth\\b/": false
+  },
+
+  "files.associations": { "*.resource": "robotframework" },
+  "files.eol": "\n",
+  "[powershell]": { "files.eol": "\r\n" }
+}

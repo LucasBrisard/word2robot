@@ -1,0 +1,9 @@
+robotframework>=7.3
+robotframework-browser>=19.0
+robotframework-robocop>=6.0
+python-docx>=1.1
+pyyaml>=6.0             # fichiers de variables Robot (commun.yaml, projet.yaml)
+gherkin-official>=29.0  # parseur Gherkin officiel de Cucumber (pivot projets/*/features/*.feature)
+pytesseract>=0.3.10     # facultatif : masquage des secrets sur les captures (nécessite tesseract)
+pillow>=10.0
+rf-mcp>=0.36            # serveur MCP Robot Framework (exécution de mots-clés pas à pas par Claude)

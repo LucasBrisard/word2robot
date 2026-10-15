@@ -1,0 +1,7 @@
+# Configuration de robocop (w2r lint / w2r format), seul outil qui lit ce fichier.
+[tool.robocop.lint]
+configure = ["line-too-long.line_length=120"]
+
+[tool.robocop.format]
+# les identifiants de scénario restent en majuscules (SC-001) pour la traçabilité
+configure = ["NormalizeTags.enabled=False"]

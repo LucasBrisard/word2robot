@@ -1,0 +1,1192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.12.15 on linux)" generated="2026-10-15T12:43:55.184299" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/work/projets/youtube/tests">
+<suite id="s1-s1" name="SC-001 rechercher une video" source="/work/projets/youtube/tests/SC-001_rechercher_une_video.robot">
+<kw name="Démarrer Le Navigateur" owner="session" type="SETUP">
+<if>
+<branch type="IF" condition="$CHEMIN_NAVIGATEUR">
+<kw name="New Browser" owner="Browser">
+<arg>${NAVIGATEUR}</arg>
+<arg>headless=${HEADLESS}</arg>
+<arg>executablePath=${CHEMIN_NAVIGATEUR}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="NOT RUN" start="2026-10-15T12:43:55.451041" elapsed="0.000671"/>
+</kw>
+<status status="NOT RUN" start="2026-10-15T12:43:55.449691" elapsed="0.002114"/>
+</branch>
+<branch type="ELSE">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-15T12:43:55.454613" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/work/projets/youtube/reports/run/stabilite/passage_1/browser/traces/temp/75c6c456-c4ee-490a-9557-38edc44112ae"}</msg>
+<msg time="2026-10-15T12:43:55.460163" level="INFO">Starting Browser process /usr/local/lib/python3.12/site-packages/Browser/wrapper/index.js using at 127.0.0.1:55579</msg>
+<msg time="2026-10-15T12:43:56.365255" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/work/projets/youtube/reports/run/stabilite/passage_1/browser/traces/temp/75c6c456-c4ee-490a-9557-38edc44112ae"}</msg>
+<arg>${NAVIGATEUR}</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-15T12:43:55.453335" elapsed="0.912078"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:43:55.451845" elapsed="0.913663"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:43:55.449662" elapsed="0.915882"/>
+</if>
+<doc>Setup de suite : un seul navigateur, un contexte isolé par test.
+CHEMIN_NAVIGATEUR (facultatif) force un exécutable précis, ex. un Chromium imposé par la DSI.</doc>
+<status status="PASS" start="2026-10-15T12:43:55.448769" elapsed="0.916835"/>
+</kw>
+<test id="s1-s1-t1" name="SC-001 Rechercher Une Vidéo Par Mot-clé" line="15">
+<kw name="Given Ouvrir L Application" owner="session">
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-15T12:43:56.373816" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "locale": "fr-FR",
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  }
+}</msg>
+<msg time="2026-10-15T12:43:56.388911" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-15T12:43:56.389029" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'locale': 'fr-FR', 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1366, 'height': 900}}</msg>
+<arg>locale=${LOCALE}</arg>
+<arg>viewport=${VIEWPORT}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-15T12:43:56.372236" elapsed="0.016875"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-15T12:43:57.710721" level="INFO">Successfully initialized new page object and opened url: https://www.youtube.com/?hl=fr&amp;gl=FR</msg>
+<arg>${URL_ACCUEIL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-15T12:43:56.389312" elapsed="1.321654"/>
+</kw>
+<kw name="Attendre Que La Page Soit Prête" owner="session">
+<if>
+<branch type="IF" condition="$PAGE_PRETE">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-15T12:43:57.990328" level="INFO">Waited for Element with selector :is(input[name="search_query"], form[action*="consent.youtube.com"]) &gt;&gt; nth=0 at state visible</msg>
+<arg>${PAGE_PRETE}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-15T12:43:57.714379" elapsed="0.276106"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:43:57.712820" elapsed="0.277739"/>
+</branch>
+<branch type="ELSE">
+<kw name="Wait For Load State" owner="Browser">
+<arg>networkidle</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits until the page reaches the required load state.</doc>
+<status status="NOT RUN" start="2026-10-15T12:43:57.992116" elapsed="0.001476"/>
+</kw>
+<status status="NOT RUN" start="2026-10-15T12:43:57.990594" elapsed="0.003095"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:43:57.712786" elapsed="0.280934"/>
+</if>
+<doc>Attend l'élément :is(input[name="search_query"], form[action*="consent.youtube.com"]) &gt;&gt; nth=0 s'il est défini, sinon le chargement du réseau.</doc>
+<status status="PASS" start="2026-10-15T12:43:57.711255" elapsed="0.282539"/>
+</kw>
+<doc>Contexte vierge (visiteur anonyme), langue forcée pour des libellés stables.</doc>
+<status status="PASS" start="2026-10-15T12:43:56.371012" elapsed="1.622831"/>
+</kw>
+<kw name="And Fermer Le Bandeau Cookies" owner="metier">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-15T12:43:58.035209" level="INFO">Waited for Element with selector :is(button[aria-label^="Refuser l'utilisation de cookies"], form[action*="consent.youtube.com"] button[aria-label="Tout refuser"]) &gt;&gt; nth=0 at state visible</msg>
+<arg>${COOKIES_TOUT_REFUSER}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-15T12:43:57.999354" elapsed="0.036001"/>
+</kw>
+<msg time="2026-10-15T12:43:58.035510" level="INFO">${present} = True</msg>
+<var>${present}</var>
+<arg>Wait For Elements State</arg>
+<arg>${COOKIES_TOUT_REFUSER}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-15T12:43:57.997410" elapsed="0.038120"/>
+</kw>
+<if>
+<branch type="IF" condition="${present}">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-15T12:43:58.037987" level="INFO">Clicks the element ':is(button[aria-label^="Refuser l'utilisation de cookies"], form[action*="consent.youtube.com"] button[aria-label="Tout refuser"]) &gt;&gt; nth=0'.</msg>
+<arg>${COOKIES_TOUT_REFUSER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:43:58.036694" elapsed="0.154131"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-15T12:43:59.608707" level="INFO">Waited for Element with selector :is(button[aria-label^="Refuser l'utilisation de cookies"], form[action*="consent.youtube.com"] button[aria-label="Tout refuser"]) &gt;&gt; nth=0 at state hidden</msg>
+<arg>${COOKIES_TOUT_REFUSER}</arg>
+<arg>hidden</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-15T12:43:58.191136" elapsed="1.417708"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:43:58.035620" elapsed="1.573290"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:43:58.035595" elapsed="1.573351"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-15T12:43:59.617091" level="INFO">Waited for Element with selector input[name="search_query"] at state visible</msg>
+<arg>${ENTETE_RECHERCHE}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-15T12:43:59.609086" elapsed="0.008509"/>
+</kw>
+<doc>Refuse les cookies si le bandeau (affiché en différé) ou la page consent.youtube.com
+apparaît, puis attend son départ et la barre de recherche. Sans bandeau, ne fait rien (SC-001 Q2, Q3).</doc>
+<status status="PASS" start="2026-10-15T12:43:57.994052" elapsed="1.623644"/>
+</kw>
+<kw name="When Rechercher" owner="metier">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-15T12:43:59.619999" level="INFO">Fills the text 'lofi' in the given field.</msg>
+<arg>${ENTETE_RECHERCHE}</arg>
+<arg>${terme}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:43:59.618869" elapsed="0.018510"/>
+</kw>
+<kw name="Keyboard Key" owner="Browser">
+<arg>press</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Press a keyboard key on the virtual keyboard or set a key up or down.</doc>
+<status status="PASS" start="2026-10-15T12:43:59.637573" elapsed="0.035839"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-15T12:44:00.632401" level="INFO">Waited for Element with selector ytd-search ytd-video-renderer &gt;&gt; nth=0 at state visible</msg>
+<arg>${RESULTATS_VIDEOS} &gt;&gt; nth=0</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-15T12:43:59.673623" elapsed="0.958926"/>
+</kw>
+<arg>lofi</arg>
+<doc>Saisit le terme dans la barre de recherche, valide, attend la liste de résultats.</doc>
+<status status="PASS" start="2026-10-15T12:43:59.617902" elapsed="1.014747"/>
+</kw>
+<kw name="Then La Recherche Retourne Au Moins" owner="metier">
+<kw name="Get Element Count" owner="Browser">
+<arg>${RESULTATS_VIDEOS}</arg>
+<arg>&gt;=</arg>
+<arg>${nombre}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:00.634815" elapsed="0.090569"/>
+</kw>
+<arg>10</arg>
+<doc>Nombre minimal de vidéos dans les résultats, sans filtre, Shorts exclus (SC-001 Q5).</doc>
+<status status="PASS" start="2026-10-15T12:44:00.632839" elapsed="0.092714"/>
+</kw>
+<kw name="And Les Premiers Résultats Contiennent" owner="metier">
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-15T12:44:01.023492" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-15T12:44:01.023711" level="INFO">${titres} = ['lofi hip hop radio 📚 beats to relax/study to', 'cozy autumn music 🍂 lofi beats to study / relax to', 'Autumn Park Café ☕ Soft Lofi Coffee Glow 🍂 Calm Beats For Study, Work &amp; Stress Relief.']</msg>
+<var>${titres}</var>
+<arg>${RESULTATS_TITRES}</arg>
+<arg>(els, n) =&gt; els.slice(0, n).map(e =&gt; e.textContent.trim())</arg>
+<arg>arg=${{int($n)}}</arg>
+<arg>all_elements=True</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-15T12:44:00.728480" elapsed="0.295266"/>
+</kw>
+<kw name="Should Contain Match" owner="Collections">
+<arg>${titres}</arg>
+<arg>*${terme}*</arg>
+<arg>case_insensitive=True</arg>
+<arg>msg=Aucun des ${n} premiers titres ne contient « ${terme} » : ${titres}</arg>
+<doc>Fails if `pattern` is not found in `list`.</doc>
+<status status="PASS" start="2026-10-15T12:44:01.023939" elapsed="0.001383"/>
+</kw>
+<arg>3</arg>
+<arg>lofi</arg>
+<doc>Au moins un des ${n} premiers titres contient le terme, sans tenir compte des majuscules
+(SC-001 Q1).</doc>
+<status status="PASS" start="2026-10-15T12:44:00.726040" elapsed="0.299367"/>
+</kw>
+<kw name="Terminer Le Test" owner="session" type="TEARDOWN">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2026-10-15T12:44:01.353057" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fin-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fin-1.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<arg>filename=fin-{index}</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2026-10-15T12:44:01.027939" elapsed="0.325257"/>
+</kw>
+<arg>Take Screenshot</arg>
+<arg>filename=fin-{index}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible errorw.</doc>
+<status status="PASS" start="2026-10-15T12:44:01.026536" elapsed="0.326745"/>
+</kw>
+<doc>Teardown de chaque test : capture d'écran finale dans log.html, à comparer en V4
+avec les captures du Word. Sans page ouverte (test ignoré), ne fait rien.</doc>
+<status status="PASS" start="2026-10-15T12:44:01.025606" elapsed="0.327731"/>
+</kw>
+<msg time="2026-10-15T12:44:01.379553" level="INFO">Switching context to context=573653e5-9afe-4325-aab8-3c95f3808393 in CURRENT</msg>
+<msg time="2026-10-15T12:44:01.387754" level="INFO">Successfully changed active context: context=573653e5-9afe-4325-aab8-3c95f3808393</msg>
+<msg time="2026-10-15T12:44:01.400216" level="INFO">Successfully closed Context</msg>
+<doc>Recherche « lofi », puis contrôle du nombre et de la pertinence des résultats.</doc>
+<tag>persona:visiteur_anonyme</tag>
+<tag>projet:youtube</tag>
+<tag>recherche</tag>
+<tag>SC-001</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-10-15T12:43:56.365685" elapsed="4.987694"/>
+</test>
+<doc>SC-001 — Rechercher une vidéo
+Source : Recette_YouTube_v0.3.docx § SC-001 – Rechercher une vidéo
+Pivot : projets/youtube/features/SC-001_rechercher_une_video.feature</doc>
+<status status="PASS" start="2026-10-15T12:43:55.225242" elapsed="6.175588"/>
+</suite>
+<suite id="s1-s2" name="SC-002 lire une video" source="/work/projets/youtube/tests/SC-002_lire_une_video.robot">
+<kw name="Démarrer Le Navigateur" owner="session" type="SETUP">
+<if>
+<branch type="IF" condition="$CHEMIN_NAVIGATEUR">
+<kw name="New Browser" owner="Browser">
+<arg>${NAVIGATEUR}</arg>
+<arg>headless=${HEADLESS}</arg>
+<arg>executablePath=${CHEMIN_NAVIGATEUR}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="NOT RUN" start="2026-10-15T12:44:01.440357" elapsed="0.000727"/>
+</kw>
+<status status="NOT RUN" start="2026-10-15T12:44:01.439158" elapsed="0.001995"/>
+</branch>
+<branch type="ELSE">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-15T12:44:01.443014" level="INFO">Switching browser to browser=3a36bfb0-c25a-41fd-94c2-0e978f9ebd50</msg>
+<msg time="2026-10-15T12:44:01.445396" level="INFO">Successfully changed active browser: browser=3a36bfb0-c25a-41fd-94c2-0e978f9ebd50</msg>
+<msg time="2026-10-15T12:44:01.445470" level="INFO">Reusing existing browser with id: browser=3a36bfb0-c25a-41fd-94c2-0e978f9ebd50</msg>
+<arg>${NAVIGATEUR}</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-15T12:44:01.441938" elapsed="0.003579"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:44:01.441184" elapsed="0.004386"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:01.439134" elapsed="0.006463"/>
+</if>
+<doc>Setup de suite : un seul navigateur, un contexte isolé par test.
+CHEMIN_NAVIGATEUR (facultatif) force un exécutable précis, ex. un Chromium imposé par la DSI.</doc>
+<status status="PASS" start="2026-10-15T12:44:01.438120" elapsed="0.007515"/>
+</kw>
+<test id="s1-s2-t1" name="SC-002 Lire, Mettre En Pause Et Passer En Plein Écran" line="15">
+<kw name="Given Avoir Recherché" owner="metier">
+<kw name="Ouvrir L Application" owner="session">
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-15T12:44:01.452891" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "locale": "fr-FR",
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  }
+}</msg>
+<msg time="2026-10-15T12:44:01.460342" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-15T12:44:01.460410" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'locale': 'fr-FR', 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1366, 'height': 900}}</msg>
+<arg>locale=${LOCALE}</arg>
+<arg>viewport=${VIEWPORT}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-15T12:44:01.451226" elapsed="0.009243"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-15T12:44:02.771910" level="INFO">Successfully initialized new page object and opened url: https://www.youtube.com/?hl=fr&amp;gl=FR</msg>
+<arg>${URL_ACCUEIL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-15T12:44:01.460639" elapsed="1.311441"/>
+</kw>
+<kw name="Attendre Que La Page Soit Prête" owner="session">
+<if>
+<branch type="IF" condition="$PAGE_PRETE">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-15T12:44:03.050511" level="INFO">Waited for Element with selector :is(input[name="search_query"], form[action*="consent.youtube.com"]) &gt;&gt; nth=0 at state visible</msg>
+<arg>${PAGE_PRETE}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-15T12:44:02.775328" elapsed="0.275346"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:44:02.773883" elapsed="0.276916"/>
+</branch>
+<branch type="ELSE">
+<kw name="Wait For Load State" owner="Browser">
+<arg>networkidle</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits until the page reaches the required load state.</doc>
+<status status="NOT RUN" start="2026-10-15T12:44:03.055474" elapsed="0.002005"/>
+</kw>
+<status status="NOT RUN" start="2026-10-15T12:44:03.050855" elapsed="0.006757"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:02.773853" elapsed="0.283794"/>
+</if>
+<doc>Attend l'élément :is(input[name="search_query"], form[action*="consent.youtube.com"]) &gt;&gt; nth=0 s'il est défini, sinon le chargement du réseau.</doc>
+<status status="PASS" start="2026-10-15T12:44:02.772362" elapsed="0.285545"/>
+</kw>
+<doc>Contexte vierge (visiteur anonyme), langue forcée pour des libellés stables.</doc>
+<status status="PASS" start="2026-10-15T12:44:01.450155" elapsed="1.608032"/>
+</kw>
+<kw name="Fermer Le Bandeau Cookies" owner="metier">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-15T12:44:03.139854" level="INFO">Waited for Element with selector :is(button[aria-label^="Refuser l'utilisation de cookies"], form[action*="consent.youtube.com"] button[aria-label="Tout refuser"]) &gt;&gt; nth=0 at state visible</msg>
+<arg>${COOKIES_TOUT_REFUSER}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-15T12:44:03.063581" elapsed="0.076487"/>
+</kw>
+<msg time="2026-10-15T12:44:03.140246" level="INFO">${present} = True</msg>
+<var>${present}</var>
+<arg>Wait For Elements State</arg>
+<arg>${COOKIES_TOUT_REFUSER}</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-15T12:44:03.061679" elapsed="0.078599"/>
+</kw>
+<if>
+<branch type="IF" condition="${present}">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-15T12:44:03.144028" level="INFO">Clicks the element ':is(button[aria-label^="Refuser l'utilisation de cookies"], form[action*="consent.youtube.com"] button[aria-label="Tout refuser"]) &gt;&gt; nth=0'.</msg>
+<arg>${COOKIES_TOUT_REFUSER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:03.142021" elapsed="0.136123"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-15T12:44:04.222719" level="INFO">Waited for Element with selector :is(button[aria-label^="Refuser l'utilisation de cookies"], form[action*="consent.youtube.com"] button[aria-label="Tout refuser"]) &gt;&gt; nth=0 at state hidden</msg>
+<arg>${COOKIES_TOUT_REFUSER}</arg>
+<arg>hidden</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-15T12:44:03.278373" elapsed="0.944588"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:44:03.140370" elapsed="1.082695"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:03.140346" elapsed="1.082774"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-15T12:44:04.241524" level="INFO">Waited for Element with selector input[name="search_query"] at state visible</msg>
+<arg>${ENTETE_RECHERCHE}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-15T12:44:04.223331" elapsed="0.018326"/>
+</kw>
+<doc>Refuse les cookies si le bandeau (affiché en différé) ou la page consent.youtube.com
+apparaît, puis attend son départ et la barre de recherche. Sans bandeau, ne fait rien (SC-001 Q2, Q3).</doc>
+<status status="PASS" start="2026-10-15T12:44:03.058568" elapsed="1.183177"/>
+</kw>
+<kw name="Rechercher" owner="metier">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-15T12:44:04.248392" level="INFO">Fills the text 'lofi' in the given field.</msg>
+<arg>${ENTETE_RECHERCHE}</arg>
+<arg>${terme}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:04.245319" elapsed="0.021566"/>
+</kw>
+<kw name="Keyboard Key" owner="Browser">
+<arg>press</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Press a keyboard key on the virtual keyboard or set a key up or down.</doc>
+<status status="PASS" start="2026-10-15T12:44:04.267081" elapsed="0.034430"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-15T12:44:05.649142" level="INFO">Waited for Element with selector ytd-search ytd-video-renderer &gt;&gt; nth=0 at state visible</msg>
+<arg>${RESULTATS_VIDEOS} &gt;&gt; nth=0</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-15T12:44:04.301723" elapsed="1.347577"/>
+</kw>
+<arg>${terme}</arg>
+<doc>Saisit le terme dans la barre de recherche, valide, attend la liste de résultats.</doc>
+<status status="PASS" start="2026-10-15T12:44:04.241903" elapsed="1.407495"/>
+</kw>
+<arg>lofi</arg>
+<doc>Précondition autonome : ouvre le site, refuse les cookies, recherche le terme
+(remplace « comme dans SC-001 », SC-002 Q5).</doc>
+<status status="PASS" start="2026-10-15T12:44:01.449094" elapsed="4.200351"/>
+</kw>
+<kw name="When Ouvrir Le Premier Résultat" owner="metier">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-15T12:44:05.653949" level="INFO">Clicks the element 'ytd-search ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="DEFAULT"]) a#video-title &gt;&gt; nth=0'.</msg>
+<arg>${RESULTATS_PREMIERE_VIDEO}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:05.651252" elapsed="0.237429"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-15T12:44:05.903769" level="INFO">Waited for Element with selector #movie_player video at state attached</msg>
+<arg>${LECTEUR_VIDEO}</arg>
+<arg>attached</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-15T12:44:05.888940" elapsed="0.014985"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>/watch</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-15T12:44:05.904664" elapsed="0.003662"/>
+</kw>
+<doc>Ouvre la première vidéo qui n'est ni un direct ni une première (SC-002 Q4).</doc>
+<status status="PASS" start="2026-10-15T12:44:05.649632" elapsed="0.258825"/>
+</kw>
+<kw name="And Attendre La Fin Des Annonces" owner="metier">
+<while condition="True" limit="${DUREE_MAX_ANNONCES}" on_limit_message="La vidéo n'a pas démarré après ${DUREE_MAX_ANNONCES} (publicité ?)">
+<iter>
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-15T12:44:05.962908" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-15T12:44:05.963102" level="INFO">${demarree} = False</msg>
+<var>${demarree}</var>
+<arg>${LECTEUR}</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-15T12:44:05.913003" elapsed="0.050123"/>
+</kw>
+<if>
+<branch type="IF" condition="${demarree}">
+<break>
+<status status="NOT RUN" start="2026-10-15T12:44:05.964156" elapsed="0.000780"/>
+</break>
+<status status="NOT RUN" start="2026-10-15T12:44:05.963234" elapsed="0.001760"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:05.963212" elapsed="0.001810"/>
+</if>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-15T12:44:06.220765" level="INFO">${ignorable} = False</msg>
+<var>${ignorable}</var>
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<arg>then</arg>
+<arg>bool(value &amp; visible)</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:05.965162" elapsed="0.255642"/>
+</kw>
+<if>
+<branch type="IF" condition="${ignorable}">
+<kw name="Click" owner="Browser">
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-15T12:44:06.222118" elapsed="0.000807"/>
+</kw>
+<status status="NOT RUN" start="2026-10-15T12:44:06.220915" elapsed="0.002084"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:06.220895" elapsed="0.002138"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait For Function" owner="Browser">
+<msg time="2026-10-15T12:44:07.824821" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="SC-002_Lire_Mettre_En_Pause_Et_Passer_En_Plein_cran_FAILURE_SCREENSHOT_6.png" target="_blank"&gt;&lt;img src="SC-002_Lire_Mettre_En_Pause_Et_Passer_En_Plein_cran_FAILURE_SCREENSHOT_6.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-15T12:44:07.824941" level="INFO">See also file:///work/projets/youtube/reports/run/stabilite/passage_1/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-15T12:44:07.825264" level="FAIL">TimeoutError: page.waitForFunction: Timeout 1000ms exceeded.</msg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Polls JavaScript expression or function in browser until it returns a (JavaScript) truthy value.</doc>
+<status status="FAIL" start="2026-10-15T12:44:06.224288" elapsed="1.605910">TimeoutError: page.waitForFunction: Timeout 1000ms exceeded.</status>
+</kw>
+<arg>Wait For Function</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-15T12:44:06.223156" elapsed="1.607194"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:44:05.910516" elapsed="1.919878"/>
+</iter>
+<iter>
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-15T12:44:07.860958" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-15T12:44:07.861163" level="INFO">${demarree} = False</msg>
+<var>${demarree}</var>
+<arg>${LECTEUR}</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-15T12:44:07.832629" elapsed="0.028565"/>
+</kw>
+<if>
+<branch type="IF" condition="${demarree}">
+<break>
+<status status="NOT RUN" start="2026-10-15T12:44:07.862351" elapsed="0.000753"/>
+</break>
+<status status="NOT RUN" start="2026-10-15T12:44:07.861308" elapsed="0.001854"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:07.861284" elapsed="0.001907"/>
+</if>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-15T12:44:07.917480" level="INFO">${ignorable} = False</msg>
+<var>${ignorable}</var>
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<arg>then</arg>
+<arg>bool(value &amp; visible)</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:07.863336" elapsed="0.054183"/>
+</kw>
+<if>
+<branch type="IF" condition="${ignorable}">
+<kw name="Click" owner="Browser">
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-15T12:44:07.919120" elapsed="0.000964"/>
+</kw>
+<status status="NOT RUN" start="2026-10-15T12:44:07.917628" elapsed="0.002548"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:07.917608" elapsed="0.002606"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait For Function" owner="Browser">
+<msg time="2026-10-15T12:44:09.063549" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="SC-002_Lire_Mettre_En_Pause_Et_Passer_En_Plein_cran_FAILURE_SCREENSHOT_7.png" target="_blank"&gt;&lt;img src="SC-002_Lire_Mettre_En_Pause_Et_Passer_En_Plein_cran_FAILURE_SCREENSHOT_7.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-15T12:44:09.063673" level="INFO">See also file:///work/projets/youtube/reports/run/stabilite/passage_1/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-15T12:44:09.063802" level="FAIL">TimeoutError: page.waitForFunction: Timeout 1000ms exceeded.</msg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Polls JavaScript expression or function in browser until it returns a (JavaScript) truthy value.</doc>
+<status status="FAIL" start="2026-10-15T12:44:07.921684" elapsed="1.142750">TimeoutError: page.waitForFunction: Timeout 1000ms exceeded.</status>
+</kw>
+<arg>Wait For Function</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-15T12:44:07.920341" elapsed="1.144198"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:44:07.830438" elapsed="1.234135"/>
+</iter>
+<iter>
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-15T12:44:09.079730" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-15T12:44:09.079920" level="INFO">${demarree} = False</msg>
+<var>${demarree}</var>
+<arg>${LECTEUR}</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-15T12:44:09.065741" elapsed="0.014202"/>
+</kw>
+<if>
+<branch type="IF" condition="${demarree}">
+<break>
+<status status="NOT RUN" start="2026-10-15T12:44:09.080981" elapsed="0.000670"/>
+</break>
+<status status="NOT RUN" start="2026-10-15T12:44:09.080057" elapsed="0.001648"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:09.080034" elapsed="0.001700"/>
+</if>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-15T12:44:09.132493" level="INFO">${ignorable} = False</msg>
+<var>${ignorable}</var>
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<arg>then</arg>
+<arg>bool(value &amp; visible)</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:09.081887" elapsed="0.050643"/>
+</kw>
+<if>
+<branch type="IF" condition="${ignorable}">
+<kw name="Click" owner="Browser">
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-15T12:44:09.133512" elapsed="0.000661"/>
+</kw>
+<status status="NOT RUN" start="2026-10-15T12:44:09.132640" elapsed="0.001587"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:09.132619" elapsed="0.001638"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait For Function" owner="Browser">
+<msg time="2026-10-15T12:44:10.245190" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="SC-002_Lire_Mettre_En_Pause_Et_Passer_En_Plein_cran_FAILURE_SCREENSHOT_8.png" target="_blank"&gt;&lt;img src="SC-002_Lire_Mettre_En_Pause_Et_Passer_En_Plein_cran_FAILURE_SCREENSHOT_8.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-15T12:44:10.245296" level="INFO">See also file:///work/projets/youtube/reports/run/stabilite/passage_1/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-15T12:44:10.245536" level="FAIL">TimeoutError: page.waitForFunction: Timeout 1000ms exceeded.</msg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Polls JavaScript expression or function in browser until it returns a (JavaScript) truthy value.</doc>
+<status status="FAIL" start="2026-10-15T12:44:09.135768" elapsed="1.110304">TimeoutError: page.waitForFunction: Timeout 1000ms exceeded.</status>
+</kw>
+<arg>Wait For Function</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-15T12:44:09.134354" elapsed="1.111809"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:44:09.064607" elapsed="1.181592"/>
+</iter>
+<iter>
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-15T12:44:10.260252" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-15T12:44:10.260438" level="INFO">${demarree} = False</msg>
+<var>${demarree}</var>
+<arg>${LECTEUR}</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-15T12:44:10.247397" elapsed="0.013063"/>
+</kw>
+<if>
+<branch type="IF" condition="${demarree}">
+<break>
+<status status="NOT RUN" start="2026-10-15T12:44:10.261385" elapsed="0.000704"/>
+</break>
+<status status="NOT RUN" start="2026-10-15T12:44:10.260572" elapsed="0.001576"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:10.260549" elapsed="0.001625"/>
+</if>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-15T12:44:10.302875" level="INFO">${ignorable} = False</msg>
+<var>${ignorable}</var>
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<arg>then</arg>
+<arg>bool(value &amp; visible)</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:10.262313" elapsed="0.040602"/>
+</kw>
+<if>
+<branch type="IF" condition="${ignorable}">
+<kw name="Click" owner="Browser">
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-15T12:44:10.304012" elapsed="0.000662"/>
+</kw>
+<status status="NOT RUN" start="2026-10-15T12:44:10.303029" elapsed="0.001697"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:10.303007" elapsed="0.001751"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait For Function" owner="Browser">
+<msg time="2026-10-15T12:44:11.431357" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="SC-002_Lire_Mettre_En_Pause_Et_Passer_En_Plein_cran_FAILURE_SCREENSHOT_9.png" target="_blank"&gt;&lt;img src="SC-002_Lire_Mettre_En_Pause_Et_Passer_En_Plein_cran_FAILURE_SCREENSHOT_9.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-15T12:44:11.431478" level="INFO">See also file:///work/projets/youtube/reports/run/stabilite/passage_1/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-15T12:44:11.431575" level="FAIL">TimeoutError: page.waitForFunction: Timeout 1000ms exceeded.</msg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Polls JavaScript expression or function in browser until it returns a (JavaScript) truthy value.</doc>
+<status status="FAIL" start="2026-10-15T12:44:10.305762" elapsed="1.126322">TimeoutError: page.waitForFunction: Timeout 1000ms exceeded.</status>
+</kw>
+<arg>Wait For Function</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-15T12:44:10.304855" elapsed="1.127316"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:44:10.246238" elapsed="1.185966"/>
+</iter>
+<iter>
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-15T12:44:11.444575" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-15T12:44:11.444765" level="INFO">${demarree} = False</msg>
+<var>${demarree}</var>
+<arg>${LECTEUR}</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-15T12:44:11.433373" elapsed="0.011415"/>
+</kw>
+<if>
+<branch type="IF" condition="${demarree}">
+<break>
+<status status="NOT RUN" start="2026-10-15T12:44:11.446281" elapsed="0.000916"/>
+</break>
+<status status="NOT RUN" start="2026-10-15T12:44:11.444895" elapsed="0.002369"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:11.444874" elapsed="0.002420"/>
+</if>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-15T12:44:11.484301" level="INFO">${ignorable} = False</msg>
+<var>${ignorable}</var>
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<arg>then</arg>
+<arg>bool(value &amp; visible)</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:11.447448" elapsed="0.036890"/>
+</kw>
+<if>
+<branch type="IF" condition="${ignorable}">
+<kw name="Click" owner="Browser">
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-15T12:44:11.485225" elapsed="0.000685"/>
+</kw>
+<status status="NOT RUN" start="2026-10-15T12:44:11.484450" elapsed="0.001533"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:11.484427" elapsed="0.001592"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait For Function" owner="Browser">
+<msg time="2026-10-15T12:44:12.599164" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="SC-002_Lire_Mettre_En_Pause_Et_Passer_En_Plein_cran_FAILURE_SCREENSHOT_10.png" target="_blank"&gt;&lt;img src="SC-002_Lire_Mettre_En_Pause_Et_Passer_En_Plein_cran_FAILURE_SCREENSHOT_10.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-15T12:44:12.599274" level="INFO">See also file:///work/projets/youtube/reports/run/stabilite/passage_1/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-15T12:44:12.599373" level="FAIL">TimeoutError: page.waitForFunction: Timeout 1000ms exceeded.</msg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Polls JavaScript expression or function in browser until it returns a (JavaScript) truthy value.</doc>
+<status status="FAIL" start="2026-10-15T12:44:11.487062" elapsed="1.113305">TimeoutError: page.waitForFunction: Timeout 1000ms exceeded.</status>
+</kw>
+<arg>Wait For Function</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-15T12:44:11.486136" elapsed="1.114358"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:44:11.432232" elapsed="1.168300"/>
+</iter>
+<iter>
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-15T12:44:12.613547" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-15T12:44:12.613736" level="INFO">${demarree} = False</msg>
+<var>${demarree}</var>
+<arg>${LECTEUR}</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-15T12:44:12.601494" elapsed="0.012263"/>
+</kw>
+<if>
+<branch type="IF" condition="${demarree}">
+<break>
+<status status="NOT RUN" start="2026-10-15T12:44:12.614719" elapsed="0.001437"/>
+</break>
+<status status="NOT RUN" start="2026-10-15T12:44:12.613865" elapsed="0.002355"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:12.613844" elapsed="0.002405"/>
+</if>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-15T12:44:12.654325" level="INFO">${ignorable} = True</msg>
+<var>${ignorable}</var>
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<arg>then</arg>
+<arg>bool(value &amp; visible)</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:12.616410" elapsed="0.037952"/>
+</kw>
+<if>
+<branch type="IF" condition="${ignorable}">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-15T12:44:12.656631" level="INFO">Clicks the element '#movie_player button.ytp-skip-ad-button'.</msg>
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:12.655646" elapsed="0.078695"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:44:12.654470" elapsed="0.079995"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:12.654449" elapsed="0.080076"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait For Function" owner="Browser">
+<msg time="2026-10-15T12:44:13.353579" level="INFO">Wait For Function completed successfully.</msg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Polls JavaScript expression or function in browser until it returns a (JavaScript) truthy value.</doc>
+<status status="PASS" start="2026-10-15T12:44:12.736054" elapsed="0.617651"/>
+</kw>
+<arg>Wait For Function</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-15T12:44:12.734716" elapsed="0.619072"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:44:12.600562" elapsed="0.753258"/>
+</iter>
+<iter>
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-15T12:44:13.443269" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-15T12:44:13.443463" level="INFO">${demarree} = True</msg>
+<var>${demarree}</var>
+<arg>${LECTEUR}</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-15T12:44:13.386118" elapsed="0.057367"/>
+</kw>
+<if>
+<branch type="IF" condition="${demarree}">
+<break>
+<status status="PASS" start="2026-10-15T12:44:13.444863" elapsed="0.000929"/>
+</break>
+<status status="PASS" start="2026-10-15T12:44:13.443591" elapsed="0.002257"/>
+</branch>
+<status status="PASS" start="2026-10-15T12:44:13.443570" elapsed="0.002307"/>
+</if>
+<kw name="Get Element States" owner="Browser">
+<var>${ignorable}</var>
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<arg>then</arg>
+<arg>bool(value &amp; visible)</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-15T12:44:13.446022" elapsed="0.000807"/>
+</kw>
+<if>
+<branch type="IF" condition="${ignorable}">
+<kw name="Click" owner="Browser">
+<arg>${LECTEUR_BOUTON_IGNORER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-15T12:44:13.447799" elapsed="0.000692"/>
+</kw>
+<status status="NOT RUN" start="2026-10-15T12:44:13.446943" elapsed="0.001599"/>
+</branch>
+<status status="NOT RUN" start="2026-10-15T12:44:13.446924" elapsed="0.001646"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<arg>Wait For Function</arg>
+<arg>${JS_VIDEO_DEMARREE}</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=1s</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-10-15T12:44:13.448662" elapsed="0.000658"/>
+</kw>
+<status status="PASS" start="2026-10-15T12:44:13.353852" elapsed="0.095512"/>
+</iter>
+<status status="PASS" start="2026-10-15T12:44:05.910513" elapsed="7.538882"/>
+</while>
+<doc>Les publicités sont aléatoires : on ne les vérifie pas, on attend que la vidéo elle-même
+ait démarré (une publicité peut commencer après l'ouverture), en cliquant « Ignorer » dès que
+possible, 90s au maximum (SC-002 Q1).</doc>
+<status status="PASS" start="2026-10-15T12:44:05.908823" elapsed="7.540641"/>
+</kw>
+<kw name="Then La Vidéo Est En Lecture" owner="metier">
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-15T12:44:13.464088" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-15T12:44:13.464301" level="INFO">${depart} = 0.613252</msg>
+<var>${depart}</var>
+<arg>${LECTEUR}</arg>
+<arg>(p) =&gt; p.getCurrentTime()</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-15T12:44:13.450525" elapsed="0.013803"/>
+</kw>
+<kw name="Wait For Function" owner="Browser">
+<msg time="2026-10-15T12:44:14.471428" level="INFO">Wait For Function completed successfully.</msg>
+<arg>(p) =&gt; !p.classList.contains('ad-showing') &amp;&amp; p.getPlayerState() === 1 &amp;&amp; p.getCurrentTime() &gt;= ${depart} + 1</arg>
+<arg>selector=${LECTEUR}</arg>
+<arg>timeout=5s</arg>
+<arg>message=La vidéo n'avance pas (position de départ ${depart} s)</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Polls JavaScript expression or function in browser until it returns a (JavaScript) truthy value.</doc>
+<status status="PASS" start="2026-10-15T12:44:13.464496" elapsed="1.007210"/>
+</kw>
+<doc>Sans clic sur « Lecture », la vidéo (pas une publicité) avance d'au moins 1 s
+en 5 s d'observation (SC-002 Q2).</doc>
+<status status="PASS" start="2026-10-15T12:44:13.449614" elapsed="1.022237"/>
+</kw>
+<kw name="When Mettre En Pause" owner="metier">
+<kw name="Hover" owner="Browser">
+<arg>${LECTEUR}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Moves the virtual mouse and scrolls to the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:14.473236" elapsed="0.049407"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-15T12:44:14.523992" level="INFO">Clicks the element '#movie_player .ytp-play-button'.</msg>
+<arg>${LECTEUR_BOUTON_LECTURE}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:14.522862" elapsed="0.057472"/>
+</kw>
+<doc>Clique sur le bouton Lecture/Pause du lecteur (les commandes s'affichent au survol).</doc>
+<status status="PASS" start="2026-10-15T12:44:14.472098" elapsed="0.108809"/>
+</kw>
+<kw name="Then La Vidéo Est En Pause" owner="metier">
+<kw name="Wait For Function" owner="Browser">
+<msg time="2026-10-15T12:44:14.597154" level="INFO">Wait For Function completed successfully.</msg>
+<arg>(p) =&gt; p.getPlayerState() === 2</arg>
+<arg>selector=${LECTEUR}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Polls JavaScript expression or function in browser until it returns a (JavaScript) truthy value.</doc>
+<status status="PASS" start="2026-10-15T12:44:14.581987" elapsed="0.015270"/>
+</kw>
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-15T12:44:15.617076" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-15T12:44:15.617306" level="INFO">${ecart} = 0</msg>
+<var>${ecart}</var>
+<arg>${LECTEUR}</arg>
+<arg>(p) =&gt; new Promise(r =&gt; { const t = p.getCurrentTime(); setTimeout(() =&gt; r(p.getCurrentTime() - t), 1000); })</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-15T12:44:14.597457" elapsed="1.019872"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-10-15T12:44:15.619598" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${ecart}</arg>
+<arg>0</arg>
+<arg>msg=La position avance encore de ${ecart} s</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-10-15T12:44:15.617510" elapsed="0.002155"/>
+</kw>
+<kw name="Get Attribute" owner="Browser">
+<msg time="2026-10-15T12:44:15.639598" level="INFO">Attribute is: 'Lire Raccourci clavier k'</msg>
+<arg>${LECTEUR_BOUTON_LECTURE}</arg>
+<arg>aria-label</arg>
+<arg>starts</arg>
+<arg>Lire</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:15.619810" elapsed="0.019898"/>
+</kw>
+<doc>La vidéo est arrêtée, sa position ne bouge plus pendant 1 s et le bouton propose « Lire »
+(SC-002 Q3).</doc>
+<status status="PASS" start="2026-10-15T12:44:14.581124" elapsed="1.058676"/>
+</kw>
+<kw name="When Passer En Plein Écran" owner="metier">
+<kw name="Hover" owner="Browser">
+<arg>${LECTEUR}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Moves the virtual mouse and scrolls to the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:15.641216" elapsed="0.052081"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-15T12:44:15.694809" level="INFO">Clicks the element '#movie_player .ytp-fullscreen-button'.</msg>
+<arg>${LECTEUR_BOUTON_PLEIN_ECRAN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:15.693484" elapsed="0.056218"/>
+</kw>
+<doc>Clique sur le bouton plein écran du lecteur.</doc>
+<status status="PASS" start="2026-10-15T12:44:15.639986" elapsed="0.109820"/>
+</kw>
+<kw name="Then Le Lecteur Est En Plein Écran" owner="metier">
+<kw name="Wait For Function" owner="Browser">
+<msg time="2026-10-15T12:44:16.064372" level="INFO">Wait For Function completed successfully.</msg>
+<arg>() =&gt; !!document.fullscreenElement?.contains(document.querySelector('#movie_player'))</arg>
+<arg>message=Le lecteur n'est pas passé en plein écran</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Polls JavaScript expression or function in browser until it returns a (JavaScript) truthy value.</doc>
+<status status="PASS" start="2026-10-15T12:44:15.751110" elapsed="0.313386"/>
+</kw>
+<doc>L'élément affiché en plein écran contient le lecteur (YouTube met en plein écran un
+conteneur du lecteur, pas le lecteur lui-même) (SC-002 Q3).</doc>
+<status status="PASS" start="2026-10-15T12:44:15.749984" elapsed="0.314609"/>
+</kw>
+<kw name="When Quitter Le Plein Écran" owner="metier">
+<kw name="Hover" owner="Browser">
+<arg>${LECTEUR}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Moves the virtual mouse and scrolls to the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:16.066103" elapsed="0.072620"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-15T12:44:16.140222" level="INFO">Clicks the element '#movie_player .ytp-fullscreen-button'.</msg>
+<arg>${LECTEUR_BOUTON_PLEIN_ECRAN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-15T12:44:16.138983" elapsed="0.046042"/>
+</kw>
+<doc>Quitte le plein écran par le même bouton.</doc>
+<status status="PASS" start="2026-10-15T12:44:16.064778" elapsed="0.120414"/>
+</kw>
+<kw name="Then Le Lecteur Est En Taille Normale" owner="metier">
+<kw name="Wait For Function" owner="Browser">
+<msg time="2026-10-15T12:44:16.203094" level="INFO">Wait For Function completed successfully.</msg>
+<arg>() =&gt; document.fullscreenElement === null</arg>
+<arg>message=Le lecteur est resté en plein écran</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Polls JavaScript expression or function in browser until it returns a (JavaScript) truthy value.</doc>
+<status status="PASS" start="2026-10-15T12:44:16.186999" elapsed="0.016239"/>
+</kw>
+<doc>Plus aucun élément en plein écran : le lecteur a repris sa place dans la page (SC-002 Q3).</doc>
+<status status="PASS" start="2026-10-15T12:44:16.185459" elapsed="0.017901"/>
+</kw>
+<kw name="Terminer Le Test" owner="session" type="TEARDOWN">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2026-10-15T12:44:16.560688" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fin-2.png" target="_blank"&gt;&lt;img src="browser/screenshot/fin-2.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<arg>filename=fin-{index}</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2026-10-15T12:44:16.206259" elapsed="0.354603"/>
+</kw>
+<arg>Take Screenshot</arg>
+<arg>filename=fin-{index}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible errorw.</doc>
+<status status="PASS" start="2026-10-15T12:44:16.205086" elapsed="0.355850"/>
+</kw>
+<doc>Teardown de chaque test : capture d'écran finale dans log.html, à comparer en V4
+avec les captures du Word. Sans page ouverte (test ignoré), ne fait rien.</doc>
+<status status="PASS" start="2026-10-15T12:44:16.203704" elapsed="0.357284"/>
+</kw>
+<msg time="2026-10-15T12:44:16.574583" level="INFO">Switching context to context=5235e20c-fb7b-4c4e-b450-9059d2aff8b2 in CURRENT</msg>
+<msg time="2026-10-15T12:44:16.579759" level="INFO">Successfully changed active context: context=5235e20c-fb7b-4c4e-b450-9059d2aff8b2</msg>
+<msg time="2026-10-15T12:44:16.589350" level="INFO">Successfully closed Context</msg>
+<doc>Lecture automatique de la première vidéo, pause, plein écran puis retour.</doc>
+<tag>lecture</tag>
+<tag>persona:visiteur_anonyme</tag>
+<tag>projet:youtube</tag>
+<tag>SC-002</tag>
+<status status="PASS" start="2026-10-15T12:44:01.445698" elapsed="15.115331"/>
+</test>
+<doc>SC-002 — Lire une vidéo
+Source : Recette_YouTube_v0.3.docx § SC-002 – Lire une vidéo
+Pivot : projets/youtube/features/SC-002_lire_une_video.feature</doc>
+<status status="PASS" start="2026-10-15T12:44:01.406524" elapsed="15.183381"/>
+</suite>
+<status status="PASS" start="2026-10-15T12:43:55.185436" elapsed="21.410101"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">lecture</stat>
+<stat pass="2" fail="0" skip="0">persona:visiteur_anonyme</stat>
+<stat pass="2" fail="0" skip="0">projet:youtube</stat>
+<stat pass="1" fail="0" skip="0">recherche</stat>
+<stat pass="1" fail="0" skip="0">SC-001</stat>
+<stat pass="1" fail="0" skip="0">SC-002</stat>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="2" fail="0" skip="0">Tests</stat>
+<stat name="SC-001 rechercher une video" id="s1-s1" pass="1" fail="0" skip="0">Tests.SC-001 rechercher une video</stat>
+<stat name="SC-002 lire une video" id="s1-s2" pass="1" fail="0" skip="0">Tests.SC-002 lire une video</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
